@@ -188,18 +188,41 @@ bob(String greet) {
 }
 
 // #14. Space Age-------------------------
-
 class SpaceAge {
-  var seconds = 31557600;
-  var ageInSec = {
+  static const _secondInEarth = 31557699;
+  static const _orbitalPeriods = {
     'mercury': 0.2408467,
     'Venus': 0.61519726,
-    'Earth': 1.0,
+    'Earth': 1,
     'Mars': 1.8808158,
     'Jupiter': 11.862615,
     'Saturn': 29.447498,
     'Uranus': 84.016846,
     'Neptune': 164.79132
   };
-  age() {}
+  age({required String planet, required int seconds}) {
+    final age =
+        seconds / (_secondInEarth * (_orbitalPeriods[planet] as double));
+    return double.parse(age.toStringAsFixed(2));
+  }
+}
+
+hamming(String sample) {
+  // var strand1 = 'GAGCCTACTAACGGGAA';
+  var strand1 = sample;
+  var strand2 = 'CATCGTAATGACGGCCT';
+  int pos = 0;
+  var res = strand1
+      .split('')
+      .map((e) => strand2[pos++] == e ? 0 : 1)
+      .fold(0, (var pv, v) => pv + v);
+  print(res);
+}
+
+String acronym() {
+  var phrase = 'Three Letter Acronyms';
+  var res =
+      phrase.split(' ').map((e) => e.isEmpty ? '' : e[0]).join().toUpperCase();
+  print(res);
+  return res;
 }
