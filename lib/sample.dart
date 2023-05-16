@@ -226,3 +226,12 @@ String acronym() {
   print(res);
   return res;
 }
+
+phoneNumber() {
+  var num = '+1 (613)-995-0253';
+  var res = num.replaceAll(RegExp(r'[^\d]'), '');
+  if (res.length > 10) {
+    res = res.substring(res.length - 10);
+  }
+  print(res);
+}
