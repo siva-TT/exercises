@@ -206,3 +206,23 @@ class SpaceAge {
     return double.parse(age.toStringAsFixed(2));
   }
 }
+
+hamming(String sample) {
+  // var strand1 = 'GAGCCTACTAACGGGAA';
+  var strand1 = sample;
+  var strand2 = 'CATCGTAATGACGGCCT';
+  int pos = 0;
+  var res = strand1
+      .split('')
+      .map((e) => strand2[pos++] == e ? 0 : 1)
+      .fold(0, (var pv, v) => pv + v);
+  print(res);
+}
+
+String acronym() {
+  var phrase = 'Three Letter Acronyms';
+  var res =
+      phrase.split(' ').map((e) => e.isEmpty ? '' : e[0]).join().toUpperCase();
+  print(res);
+  return res;
+}
