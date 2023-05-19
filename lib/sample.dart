@@ -235,3 +235,15 @@ phoneNumber() {
   }
   print(res);
 }
+
+rainDrops() {
+  bool isDivisible(int n, int m) => n % m == 0;
+  var res = '';
+  var inputN = 30;
+  res += isDivisible(inputN, 3) ? 'Plink' : '';
+  res += isDivisible(inputN, 5) ? 'Plank' : '';
+  res += isDivisible(inputN, 7) ? 'Plonk' : '';
+
+  res = res.isEmpty ? inputN.toString() : res;
+  print(res);
+}
